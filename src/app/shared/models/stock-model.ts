@@ -7,3 +7,5 @@ class Stock {
   variation: number;
   date: string;
 }
+
+export default Stock;

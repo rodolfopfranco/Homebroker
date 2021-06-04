@@ -1,10 +1,16 @@
-import { NgModule } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { pathToFileURL } from 'url';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
+import localePT from '@angular/common/locales/pt';
+
+
+registerLocaleData(localePT);
 
 @NgModule({
   declarations: [
@@ -16,7 +22,9 @@ import { SharedModule } from './shared/shared.module';
     DashboardModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'pt-BR'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
